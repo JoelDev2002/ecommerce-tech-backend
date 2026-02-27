@@ -1,4 +1,4 @@
- Imagen con Java 17
+ #Imagen con Java 17
 FROM eclipse-temurin:17-jdk
 
 # Carpeta de trabajo
