@@ -1,14 +1,11 @@
- #Imagen con Java 17
-FROM eclipse-temurin:17-jdk
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 
-# Carpeta de trabajo
 WORKDIR /app
-
-# Copiamos todo el proyecto
 COPY . .
+RUN mvn clean package -DskipTests
 
-# Construimos el proyecto
-RUN ./mvnw clean package -DskipTests
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 
-# Ejecutamos el jar
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["java", "-jar", "app.jar"]
