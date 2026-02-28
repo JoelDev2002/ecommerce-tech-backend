@@ -3,6 +3,7 @@ package pe.edu.idat.webtech.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import pe.edu.idat.webtech.service.RolService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "https://frontend-eccomerce-tech.vercel.app")
 @RestController
 @RequestMapping("v1/rol")
 @RequiredArgsConstructor
